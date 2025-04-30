@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { BroadcastHub } from './pages/BroadcastHub';
@@ -6,6 +6,16 @@ import { MessageSending } from './pages/MessageSending';
 
 function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    console.log('App montado');
+    console.log('Rota atual:', location.pathname);
+  }, []);
+
+  // Log de mudança de rota
+  useEffect(() => {
+    console.log('Navegação para:', location.pathname);
+  }, [location.pathname]);
   
   return (
     <div className="min-h-screen bg-secondary-100">
